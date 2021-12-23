@@ -32,6 +32,7 @@ public class LevelUIManager : MonoBehaviour
         if (isGameOver)
         {
             gameOverPanel.SetActive(true);
+            pauseButton.SetActive(false);
             Time.timeScale = 0;
         }
         scoreText.text = "Score: " + score;
