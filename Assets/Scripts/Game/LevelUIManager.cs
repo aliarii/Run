@@ -20,6 +20,7 @@ public class LevelUIManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        isGamePause = false;
         isGameOver = false;
         isGameStarted = false;
         score = 0;
@@ -38,10 +39,6 @@ public class LevelUIManager : MonoBehaviour
         {
             isGameStarted = true;
             startingText.SetActive(false);
-        }
-        if (SwipeManager.tap && isGamePause)
-        {
-            PauseGame();
         }
 
 
@@ -65,13 +62,16 @@ public class LevelUIManager : MonoBehaviour
     }
     public void ReplayGame()
     {
-
         SceneManager.LoadScene("Level");
-
+    }
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
     public void QuitGame()
     {
         Application.Quit();
     }
+
 
 }

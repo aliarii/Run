@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 3377740982108422027}
   - component: {fileID: 3369473616064304207}
   - component: {fileID: 7209462577905797495}
+  - component: {fileID: 2553407670200580606}
   m_Layer: 6
   m_Name: rpgpp_lt_rock_03
   m_TagString: Obstacle
@@ -253,13 +254,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3356079782151363501}
-  m_LocalRotation: {x: -0.07235925, y: 0.31928775, z: -0.20884223, w: 0.9215229}
-  m_LocalPosition: {x: -2.05, y: 0.203, z: -2.78}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.05, y: 0.203, z: -4.49}
   m_LocalScale: {x: 0.62420005, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 5715601239932762162}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 38.22, z: -25.538}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3377740982108422027
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -323,6 +324,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 455995b8866658b42b3da7b1cab18535, type: 3}
+--- !u!114 &2553407670200580606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356079782151363501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9423756c34d85646ba9d06a98e6f119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3448664493287175700
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +348,7 @@ GameObject:
   - component: {fileID: 3436235161072834496}
   - component: {fileID: 3426965180190654416}
   - component: {fileID: 327490980996395712}
+  - component: {fileID: 7959634416834966875}
   m_Layer: 6
   m_Name: rpgpp_lt_rock_01
   m_TagString: Obstacle
@@ -349,13 +363,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3448664493287175700}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 1.96, y: 0.93, z: 6.083582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8010223, y: 0.93, z: 9.65}
   m_LocalScale: {x: 0.9, y: 1.3044, z: 0.831555}
   m_Children: []
   m_Father: {fileID: 5715601239932762162}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3436235161072834496
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -419,6 +433,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 305f277e1529222439b495a441de2f0b, type: 3}
+--- !u!114 &7959634416834966875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448664493287175700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9423756c34d85646ba9d06a98e6f119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4224606357969273907
 GameObject:
   m_ObjectHideFlags: 0

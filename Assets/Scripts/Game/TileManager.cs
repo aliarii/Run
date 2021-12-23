@@ -9,6 +9,7 @@ public class TileManager : MonoBehaviour
     public float zSpawn = 0;
     public float tileLength = 30;
     public int numberOfTiles;
+    private int totalSpawnTile = 4;
     public Transform playerTransform;
 
     private int previousIndex;
@@ -16,7 +17,7 @@ public class TileManager : MonoBehaviour
     {
         numberOfTiles = tilePrefabs.Length;
 
-        for (int i = 0; i < numberOfTiles; i++)
+        for (int i = 0; i < totalSpawnTile; i++)
         {
             if (i == 0)
                 SpawnTile(0);
@@ -28,7 +29,7 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform.position.z - 30 >= zSpawn - (numberOfTiles * tileLength))
+        if (playerTransform.position.z - 30 >= zSpawn - (totalSpawnTile * tileLength))
         {
             SpawnTile(Random.Range(0, numberOfTiles));
             DeleteTile();
@@ -43,7 +44,7 @@ public class TileManager : MonoBehaviour
     }
     private void DeleteTile()
     {
-        LevelUIManager.score += 30;
+        LevelUIManager.score += 10;
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
     }

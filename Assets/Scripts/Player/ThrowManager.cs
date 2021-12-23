@@ -6,19 +6,21 @@ using UnityEngine.UI;
 public class ThrowManager : MonoBehaviour
 {
     public Transform throwPoint;
-    public static Transform passThrowPoint;
-    public GameObject throwable;
+    public GameObject throwableObject;
     public Text woodsText;
 
     public static int numberOfWoods;
     public float forwardSpeed;
+    private void Start()
+    {
+        numberOfWoods = 0;
+    }
     private void Update()
     {
         if (forwardSpeed < PlayerController.maxSpeed + forwardSpeed)
         {
             forwardSpeed += 0.5f * Time.deltaTime;
         }
-        passThrowPoint = throwPoint.transform;
         if (numberOfWoods > 99)
         {
             woodsText.text = "99+";
@@ -32,10 +34,10 @@ public class ThrowManager : MonoBehaviour
     }
     public void ThrowObject()
     {
-        GameObject cB = Instantiate(throwable, throwPoint.position, throwable.transform.rotation);
-        Rigidbody rig = cB.GetComponent<Rigidbody>();
-        rig.AddForce(throwPoint.forward * forwardSpeed, ForceMode.VelocityChange);
 
+        GameObject throwable = Instantiate(throwableObject, throwPoint.position + new Vector3(0, 0, 3f), throwableObject.transform.rotation);
+        Rigidbody throwableRb = throwable.GetComponent<Rigidbody>();
+        throwableRb.AddForce(throwPoint.forward * forwardSpeed, ForceMode.VelocityChange);
     }
     public void ControlThrow()
     {
