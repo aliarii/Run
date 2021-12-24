@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Destroyable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public ParticleSystem explosionParticle;
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == "Destroyable" || collision.transform.tag == "Throwable")
+        if (other.tag == "Throwable")
         {
             LevelUIManager.score += 5;
-            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            //Destroy(collision.collider.gameObject.GetComponent<Collider>(), 0.1f);
-            Destroy(gameObject);
+            FindObjectOfType<Throwables>().PlayParticle();
+            gameObject.SetActive(false);
         }
-
+        if (other.tag == "Player")
+        {
+            LevelUIManager.isGameOver = true;
+            FindObjectOfType<AudioManager>().PlaySound("GameOver");
+        }
     }
 }

@@ -31,6 +31,10 @@ public class LevelUIManager : MonoBehaviour
     {
         if (isGameOver)
         {
+            if (score > PlayerPrefs.GetInt("HighScore", 0))
+            {
+                PlayerPrefs.SetInt("HighScore", score);
+            }
             gameOverPanel.SetActive(true);
             pauseButton.SetActive(false);
             Time.timeScale = 0;

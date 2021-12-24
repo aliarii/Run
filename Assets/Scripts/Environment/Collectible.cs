@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    //rotate object
     void Update()
     {
         transform.Rotate(0, 0, 50 * Time.deltaTime);
     }
+
+    //check player interaction
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().PlaySound("PickUpCoin");
+            FindObjectOfType<AudioManager>().PlaySound("PickUp");
             ThrowManager.numberOfWoods += 1;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -21,7 +21,6 @@ public class MoveObjects : MonoBehaviour
             goRight = true;
         }
     }
-    // Update is called once per frame
     void Update()
     {
         if (goLeft)
@@ -43,14 +42,6 @@ public class MoveObjects : MonoBehaviour
             }
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-        /*if (transform.position.x > -2)
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
-        else if (transform.position.x < 2)
-        {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-        }*/
 
     }
 }

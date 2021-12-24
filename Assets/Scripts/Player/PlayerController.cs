@@ -16,10 +16,8 @@ public class PlayerController : MonoBehaviour
     public static float forwardSpeed;
     public static float maxSpeed = 30;
     public float laneDistance;
-    private float laneChangeSpeed = 25;
     private int desiredLane = 1;//0:left 1:middle 2:right
 
-    // Start is called before the first frame update
     void Start()
     {
         playerDirection = Vector3.zero;
@@ -28,8 +26,6 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponentInChildren<Animator>();
         characterController = GetComponent<CharacterController>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (!LevelUIManager.isGameStarted || LevelUIManager.isGameOver)
@@ -43,6 +39,7 @@ public class PlayerController : MonoBehaviour
         }
 
         SetAnimations();
+
         playerDirection.z = forwardSpeed;
         isGrounded = Physics.CheckSphere(groundCheck.position, characterController.radius, groundLayer);
         if (isGrounded)
@@ -55,7 +52,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerDirection.y += gravityForce * Time.deltaTime;
-
         }
         if (SwipeManager.swipeDown && !isSliding)
         {
@@ -68,10 +64,9 @@ public class PlayerController : MonoBehaviour
             if (desiredLane == 3)
             {
                 desiredLane = 2;
-
+                return;
             }
-
-
+            characterController.Move(Vector3.right * laneDistance);
         }
         if (SwipeManager.swipeLeft)
         {
@@ -79,38 +74,12 @@ public class PlayerController : MonoBehaviour
             if (desiredLane == -1)
             {
                 desiredLane = 0;
+                return;
             }
-
-
-        }
-
-        //calculate where we should be in the future
-        Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
-        if (desiredLane == 0)
-        {
-            targetPosition += Vector3.left * laneDistance;
-        }
-        else if (desiredLane == 2)
-        {
-            targetPosition += Vector3.right * laneDistance;
-        }
-        if (transform.position != targetPosition)
-        {
-            Vector3 diff = targetPosition - transform.position;
-            Vector3 moveDir = diff.normalized * laneChangeSpeed * Time.deltaTime;
-            if (moveDir.sqrMagnitude < diff.sqrMagnitude)
-            {
-                characterController.Move(moveDir);
-
-            }
-            else
-            {
-                characterController.Move(diff);
-            }
+            characterController.Move(Vector3.left * laneDistance);
         }
         //Move Player
         characterController.Move(playerDirection * Time.deltaTime);
-
     }
 
     private void SetAnimations()
@@ -122,11 +91,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.tag == "Obstacle" || hit.transform.tag == "Destroyable")
+        if (hit.transform.tag == "Obstacle")
         {
             LevelUIManager.isGameOver = true;
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
-
         }
     }
 
