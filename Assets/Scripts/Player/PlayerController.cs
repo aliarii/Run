@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController characterController;
+    private CapsuleCollider characterCollider;
     private Animator playerAnimator;
     private Vector3 playerDirection;
     public LayerMask groundLayer;
@@ -16,15 +16,14 @@ public class PlayerController : MonoBehaviour
     public static float forwardSpeed;
     public static float maxSpeed = 30;
     public float laneDistance;
-    private int desiredLane = 1;//0:left 1:middle 2:right
 
     void Start()
     {
         playerDirection = Vector3.zero;
-        forwardSpeed = 8;
+        forwardSpeed = 8f;
         groundCheck = GameObject.Find("GroundCheck").transform;
         playerAnimator = GetComponentInChildren<Animator>();
-        characterController = GetComponent<CharacterController>();
+        characterCollider = GetComponent<CapsuleCollider>();
     }
     void Update()
     {
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
 
         playerDirection.z = forwardSpeed;
-        isGrounded = Physics.CheckSphere(groundCheck.position, characterController.radius, groundLayer);
+        isGrounded = Physics.CheckSphere(groundCheck.position, characterCollider.radius, groundLayer);
         if (isGrounded)
         {
             if (SwipeManager.swipeUp && !isSliding)
@@ -52,6 +51,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerDirection.y += gravityForce * Time.deltaTime;
+            if (playerDirection.y < 0)
+            {
+                playerDirection.y = 0;
+            }
         }
         if (SwipeManager.swipeDown && !isSliding)
         {
@@ -60,38 +63,36 @@ public class PlayerController : MonoBehaviour
         //gather the inputs on which lane we should be
         if (SwipeManager.swipeRight)
         {
-            desiredLane++;
-            if (desiredLane == 3)
+            if (transform.position.x < 2)
             {
-                desiredLane = 2;
-                return;
+                transform.position += Vector3.right * laneDistance;
             }
-            characterController.Move(Vector3.right * laneDistance);
+
         }
         if (SwipeManager.swipeLeft)
         {
-            desiredLane--;
-            if (desiredLane == -1)
+            if (transform.position.x > -1)
             {
-                desiredLane = 0;
-                return;
+                transform.position += Vector3.left * laneDistance;
             }
-            characterController.Move(Vector3.left * laneDistance);
+
+        }
+        if (transform.position.x > 2.5f || transform.position.x < -2.5f)
+        {
+            LevelUIManager.isGameOver = true;
+            FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
         //Move Player
-        characterController.Move(playerDirection * Time.deltaTime);
+        transform.Translate(playerDirection * Time.deltaTime);
     }
-
     private void SetAnimations()
     {
         playerAnimator.SetBool("isGameStarted", true);
         playerAnimator.SetBool("isGrounded", isGrounded);
     }
-
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnCollisionEnter(Collision other)
     {
-        if (hit.transform.tag == "Obstacle")
+        if (other.transform.tag == "Obstacle")
         {
             LevelUIManager.isGameOver = true;
             FindObjectOfType<AudioManager>().PlaySound("GameOver");
@@ -102,22 +103,22 @@ public class PlayerController : MonoBehaviour
     {
         isSliding = true;
         playerAnimator.SetBool(nameof(isSliding), true);
-        characterController.center = new Vector3(0, -0.5f, 0);
-        characterController.height = 0.3f;
+        characterCollider.center = new Vector3(0, -0.5f, 0);
+        characterCollider.height = 0.3f;
         yield return new WaitForSeconds(0.5f);
-        characterController.center = new Vector3(0, 0, 0);
-        characterController.height = 2;
+        characterCollider.center = new Vector3(0, 0, 0);
+        characterCollider.height = 2;
         playerAnimator.SetBool(nameof(isSliding), false);
         isSliding = false;
     }
     private IEnumerator Jump()
     {
         playerDirection.y = jumpForce;
-        characterController.center = new Vector3(0, 0.5f, 0);
-        characterController.height = 1f;
+        characterCollider.center = new Vector3(0, 0.5f, 0);
+        characterCollider.height = 1f;
         yield return new WaitForSeconds(0.5f);
-        characterController.center = new Vector3(0, 0, 0);
-        characterController.height = 2;
+        characterCollider.center = new Vector3(0, 0, 0);
+        characterCollider.height = 2;
     }
 
 }
