@@ -238,8 +238,8 @@ GameObject:
   - component: {fileID: 3352569885945628551}
   - component: {fileID: 3377740982108422027}
   - component: {fileID: 3369473616064304207}
-  - component: {fileID: 7209462577905797495}
   - component: {fileID: 2553407670200580606}
+  - component: {fileID: 1900666286962595445}
   m_Layer: 6
   m_Name: rpgpp_lt_rock_03
   m_TagString: Obstacle
@@ -310,20 +310,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7209462577905797495
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356079782151363501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 455995b8866658b42b3da7b1cab18535, type: 3}
 --- !u!114 &2553407670200580606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +322,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9423756c34d85646ba9d06a98e6f119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1900666286962595445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356079782151363501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0224223, y: 1.6239221, z: 2.738186}
+  m_Center: {x: 0.034115314, y: -0.013772577, z: -0.11796063}
 --- !u!1 &3448664493287175700
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,8 +346,8 @@ GameObject:
   - component: {fileID: 3443624479569479678}
   - component: {fileID: 3436235161072834496}
   - component: {fileID: 3426965180190654416}
-  - component: {fileID: 327490980996395712}
   - component: {fileID: 7959634416834966875}
+  - component: {fileID: 1893187967341930069}
   m_Layer: 6
   m_Name: rpgpp_lt_rock_01
   m_TagString: Obstacle
@@ -419,20 +418,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &327490980996395712
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3448664493287175700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 305f277e1529222439b495a441de2f0b, type: 3}
 --- !u!114 &7959634416834966875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +430,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9423756c34d85646ba9d06a98e6f119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1893187967341930069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448664493287175700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6173592, y: 2.012907, z: 2.1517613}
+  m_Center: {x: 0.14191061, y: 0.12104565, z: 0.038137436}
 --- !u!1 &4224606357969273907
 GameObject:
   m_ObjectHideFlags: 0
