@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 3369473616064304207}
   - component: {fileID: 2553407670200580606}
   - component: {fileID: 1900666286962595445}
+  - component: {fileID: 8709103308694711014}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_03
   m_TagString: Obstacle
@@ -333,8 +334,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0224223, y: 1.6239221, z: 2.738186}
-  m_Center: {x: 0.034115314, y: -0.013772577, z: -0.11796063}
+  m_Size: {x: 3.0224226, y: 0.55135304, z: 2.768719}
+  m_Center: {x: 0.034115303, y: 0.06643429, z: -0.13322666}
+--- !u!65 &8709103308694711014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3356079782151363501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7704145, y: 0.4422832, z: 1.5436648}
+  m_Center: {x: 0.04853911, y: 0.57704794, z: -0.14786258}
 --- !u!1 &3448664493287175700
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +362,7 @@ GameObject:
   - component: {fileID: 3426965180190654416}
   - component: {fileID: 7959634416834966875}
   - component: {fileID: 1893187967341930069}
+  - component: {fileID: 4588179178094552266}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_01
   m_TagString: Obstacle
@@ -439,10 +454,23 @@ BoxCollider:
   m_GameObject: {fileID: 3448664493287175700}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6173599, y: 1.1848348, z: 2.1517613}
+  m_Center: {x: 0.14191058, y: -0.2929901, z: 0.038137425}
+--- !u!65 &4588179178094552266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448664493287175700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6173592, y: 2.012907, z: 2.1517613}
-  m_Center: {x: 0.14191061, y: 0.12104565, z: 0.038137436}
+  m_Size: {x: 2.6173599, y: 0.8252361, z: 1.378517}
+  m_Center: {x: 0.14191058, y: 0.7148809, z: -0.23883632}
 --- !u!1 &4224606357969273907
 GameObject:
   m_ObjectHideFlags: 0
