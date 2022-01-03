@@ -442,7 +442,7 @@ MonoBehaviour:
   - {fileID: 2041212290}
   - {fileID: 1739673312}
   spawnPosZ: 0
-  eachTileLength: 30
+  eachTileLength: 29
   numberOfTiles: 8
 --- !u!4 &65187412
 Transform:
