@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Jump()
     {
         playerDirection.y = jumpForce;
-        characterCollider.center = new Vector3(0, 0.5f, 0);
+        characterCollider.center = new Vector3(0, 0.7f, 0);
         characterCollider.height = 1f;
         yield return new WaitForSeconds(0.5f);
         characterCollider.center = new Vector3(0, 0, 0);

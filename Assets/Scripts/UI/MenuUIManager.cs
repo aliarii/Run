@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class MenuUIManager : MonoBehaviour
 {
     public Text highScoreText;
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     private void Update()
     {
         highScoreText.text = "High Score\n" + PlayerPrefs.GetInt("HighScore", 0);
